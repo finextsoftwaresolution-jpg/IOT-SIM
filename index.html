@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f97316" />
+  <title>IOT SIM M2M — Smart Connectivity Workspace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <main id="authView" class="auth-shell">
+    <section class="auth-visual">
+      <div class="brand brand-light"><span class="brand-mark">F</span><span>IOT SIM M2M<span class="brand-sub"> SMART CONNECTIVITY</span></span></div>
+      <div class="visual-copy">
+        <span class="eyebrow"><i class="pulse"></i> PARTNER OPERATIONS PLATFORM</span>
+        <h1>Every connection.<br><em>Under control.</em></h1>
+        <p>Manage SIM activations, customer records, service requests and GPS operations from one clear workspace.</p>
+        <div class="visual-stats">
+          <div><strong>Live-ready</strong><small>SIM workspace</small></div>
+          <div><strong>One portal</strong><small>Partner operations</small></div>
+          <div><strong>24/7</strong><small>Visibility concept</small></div>
+        </div>
+      </div>
+      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      <div class="visual-footer">A smart connectivity workspace by Finext Software Solution</div>
+    </section>
+    <section class="auth-panel">
+      <div class="auth-top"><span class="status-dot"></span> Secure workspace <span class="demo-tag">DEMO MODE</span></div>
+      <div class="auth-card">
+        <div class="mobile-brand brand"><span class="brand-mark">F</span><span>IOT SIM M2M<span class="brand-sub"> SMART CONNECTIVITY</span></span></div>
+        <div class="auth-heading"><span class="section-kicker">WELCOME BACK</span><h2 id="authTitle">Sign in to your portal</h2><p id="authSubtitle">Choose your workspace and continue.</p></div>
+        <div class="role-switch" id="roleSwitch"><button class="role-option active" data-role="user" type="button">Partner / User</button><button class="role-option" data-role="admin" type="button">Administrator</button></div>
+        <form id="loginForm" class="form-stack">
+          <label>Email or username<input id="loginId" required autocomplete="username" placeholder="e.g. partner@finext.demo" /></label>
+          <label>Password<div class="password-wrap"><input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Enter demo password" /><button class="eye-btn" type="button" id="togglePassword" aria-label="Show password">◉</button></div></label>
+          <div class="form-line"><label class="check-label"><input id="rememberMe" type="checkbox" checked /> Keep me signed in</label><button type="button" class="text-btn" id="forgotBtn">Forgot password?</button></div>
+          <button class="btn btn-primary btn-wide" type="submit">Sign in <span>→</span></button>
+          <div class="auth-divider"><span>OR</span></div>
+          <button type="button" class="btn btn-outline btn-wide" id="showRegister">Create partner account</button>
+        </form>
+        <form id="registerForm" class="form-stack hidden">
+          <div class="two-fields"><label>Full name<input id="regName" required placeholder="Your name" /></label><label>Phone number<input id="regPhone" required inputmode="tel" pattern="[0-9+() -]{7,18}" placeholder="+91 98765 43210" /></label></div>
+          <label>Email address<input id="regEmail" type="email" required placeholder="you@company.com" /></label>
+          <label>Business / company<input id="regCompany" required placeholder="Company name" /></label>
+          <label>Create password<input id="regPassword" type="password" minlength="6" required placeholder="At least 6 characters" /></label>
+          <button class="btn btn-primary btn-wide" type="submit">Create demo account <span>→</span></button>
+          <button type="button" class="text-btn centered" id="showLogin">Already have an account? Sign in</button>
+        </form>
+        <div class="demo-credentials"><div class="credential-icon">✦</div><div><strong>Try the demo instantly</strong><p><b>User:</b> partner / demo123 &nbsp; <b>Admin:</b> admin / admin123</p></div><button type="button" id="fillDemo" title="Fill demo credentials">Use</button></div>
+        <p class="legal-note">Prototype only. Data is stored in this browser; no real SIM, payment or server action is performed.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-brand brand"><span class="brand-mark">F</span><span>IOT SIM M2M<span class="brand-sub"> SMART CONNECTIVITY</span></span><button class="mobile-close" id="closeSidebar">×</button></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav id="mainNav" class="main-nav">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span> Overview</button>
+        <button class="nav-item" data-page="sims"><span class="nav-icon">▤</span> SIM management <span class="nav-count" id="simNavCount">12</span></button>
+        <button class="nav-item" data-page="customers"><span class="nav-icon">♙</span> Customers</button>
+        <button class="nav-item" data-page="orders"><span class="nav-icon">▣</span> Orders & checkout</button>
+        <button class="nav-item" data-page="custody"><span class="nav-icon">◈</span> Safe custody</button>
+        <button class="nav-item" data-page="complaints"><span class="nav-icon">☷</span> Service tickets <span class="nav-count orange" id="ticketNavCount">3</span></button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon">▥</span> Reports</button>
+        <button class="nav-item admin-only" data-page="team"><span class="nav-icon">♧</span> Team & access</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">?</div><strong>Need a hand?</strong><p>Visit the demo help center for quick guidance.</p><button id="helpBtn">Open help center <span>↗</span></button></div>
+        <div class="side-user"><div class="avatar" id="sideAvatar">P</div><div class="side-user-info"><strong id="sideName">Partner User</strong><small id="sideRole">Partner account</small></div><button id="sideMenu" class="dots-btn" aria-label="Account menu">•••</button></div>
+      </div>
+    </aside>
+    <div class="sidebar-scrim" id="sidebarScrim"></div>
+    <section class="main-area">
+      <header class="topbar">
+        <div class="top-left"><button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Overview</strong></div></div>
+        <div class="top-actions"><div class="search-box"><span>⌕</span><input id="globalSearch" placeholder="Search anything..." aria-label="Search" /><kbd>⌘ K</kbd></div><button class="icon-button notification-button" id="notificationBtn" aria-label="Notifications">♧<i></i></button><div class="top-avatar" id="topAvatar">P</div></div>
+      </header>
+      <div class="page-content" id="pageContent"></div>
+      <footer class="app-footer"><span>© 2026 Finext Software Solution</span><span><i class="status-dot"></i> Demo environment <span class="footer-sep">·</span> <button id="logoutFooter">Sign out</button></span></footer>
+    </section>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><div><span class="section-kicker" id="modalKicker">WORKSPACE ACTION</span><h3 id="modalTitle">New record</h3></div><button class="modal-close" id="modalClose" aria-label="Close">×</button></div>
+      <form id="modalForm"><div id="modalBody" class="modal-body"></div><div class="modal-actions"><button type="button" class="btn btn-outline" id="modalCancel">Cancel</button><button type="submit" class="btn btn-primary" id="modalSubmit">Save record <span>→</span></button></div></form>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
